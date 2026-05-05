@@ -1,4 +1,4 @@
-<article class="card" [class.card--featured]="featured">
+<a class="card" [class.card--featured]="featured" [routerLink]="['/article', article.id]">
   <div class="card-image">
     <img [src]="article.imageUrl" [alt]="article.title" loading="lazy" />
     <span class="card-category" [attr.data-cat]="getCategoryClass(article.category)">
@@ -29,4 +29,4 @@
       </div>
     </div>
   </div>
-</article>
+</a>

@@ -1,0 +1,53 @@
+<app-hero />
+
+<app-category-filter
+  [selected]="selectedCategory()"
+  (categoryChange)="onCategoryChange($event)"
+/>
+
+<main class="main-content">
+  <div class="container">
+
+    @if (featuredArticles().length > 0) {
+      <section class="section">
+        <div class="section-header">
+          <h2 class="section-title">
+            <span class="section-title-dot"></span>
+            Featured
+          </h2>
+        </div>
+        <div class="featured-grid">
+          @for (article of featuredArticles(); track trackById($index, article)) {
+            <app-article-card [article]="article" [featured]="true" />
+          }
+        </div>
+      </section>
+    }
+
+    @if (regularArticles().length > 0) {
+      <section class="section">
+        <div class="section-header">
+          <h2 class="section-title">
+            <span class="section-title-dot"></span>
+            Latest Articles
+          </h2>
+          <span class="section-count">{{ filteredArticles().length }} articles</span>
+        </div>
+        <div class="articles-grid">
+          @for (article of regularArticles(); track trackById($index, article)) {
+            <app-article-card [article]="article" />
+          }
+        </div>
+      </section>
+    }
+
+    @if (filteredArticles().length === 0) {
+      <div class="empty-state">
+        <div class="empty-icon">🔍</div>
+        <h3>No articles found</h3>
+        <p>Try selecting a different category.</p>
+      </div>
+    }
+
+  </div>
+</main>

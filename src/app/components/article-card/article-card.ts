@@ -1,11 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
+import { RouterLink } from '@angular/router';
 import { Article } from '../../models/article.model';
 
 @Component({
   selector: 'app-article-card',
   standalone: true,
-  imports: [CommonModule, DatePipe],
+  imports: [CommonModule, DatePipe, RouterLink],
   templateUrl: './article-card.html',
   styleUrl: './article-card.css',
 })
