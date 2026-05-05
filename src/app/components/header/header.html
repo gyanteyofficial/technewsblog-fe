@@ -18,6 +18,29 @@
           <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
         </svg>
       </button>
+
+      <button
+        class="theme-toggle"
+        [class.is-dark]="isDarkForced()"
+        (click)="toggleTheme()"
+        [attr.aria-label]="isDarkForced() ? 'Switch to system theme' : 'Switch to dark mode'">
+        <span class="theme-toggle-track">
+          <span class="theme-toggle-thumb">
+            @if (isDarkForced()) {
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/>
+              </svg>
+            } @else {
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <circle cx="12" cy="12" r="4"/>
+                <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+              </svg>
+            }
+          </span>
+        </span>
+        <span class="theme-toggle-label">{{ isDarkForced() ? 'Dark' : 'Auto' }}</span>
+      </button>
+
       <button class="subscribe-btn">Subscribe</button>
       <button class="hamburger" (click)="toggleMenu()" aria-label="Menu">
         <span></span><span></span><span></span>

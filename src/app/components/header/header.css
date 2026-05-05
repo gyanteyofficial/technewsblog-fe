@@ -2,9 +2,10 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(10, 10, 15, 0.85);
+  background: var(--header-bg);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
+  transition: background 0.3s, border-color 0.3s;
 }
 
 .header-inner {
@@ -27,9 +28,7 @@
   flex-shrink: 0;
 }
 
-.logo-icon {
-  font-size: 1.5rem;
-}
+.logo-icon { font-size: 1.5rem; }
 
 .logo-text {
   background: linear-gradient(135deg, #6c63ff, #a78bfa);
@@ -53,9 +52,7 @@
   white-space: nowrap;
 }
 
-.nav-link:hover {
-  color: var(--text-primary);
-}
+.nav-link:hover { color: var(--text-primary); }
 
 .header-actions {
   display: flex;
@@ -79,6 +76,63 @@
 .search-btn:hover {
   color: var(--text-primary);
   background: var(--bg-card);
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 5px 12px 5px 5px;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  font-family: 'Inter', sans-serif;
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent);
+}
+
+.theme-toggle-track {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--bg-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.25s;
+  flex-shrink: 0;
+}
+
+.theme-toggle.is-dark .theme-toggle-track {
+  background: var(--accent);
+}
+
+.theme-toggle-thumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  transition: color 0.25s;
+}
+
+.theme-toggle.is-dark .theme-toggle-thumb {
+  color: #fff;
+}
+
+.theme-toggle-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: color 0.2s;
+  white-space: nowrap;
+}
+
+.theme-toggle.is-dark .theme-toggle-label {
+  color: var(--accent-light);
 }
 
 .subscribe-btn {
@@ -118,9 +172,7 @@
   transition: background 0.2s;
 }
 
-.hamburger:hover span {
-  background: var(--text-primary);
-}
+.hamburger:hover span { background: var(--text-primary); }
 
 @media (max-width: 768px) {
   .hamburger { display: flex; }
@@ -147,4 +199,6 @@
   }
 
   .subscribe-btn { display: none; }
+  .theme-toggle-label { display: none; }
+  .theme-toggle { padding: 5px; }
 }
