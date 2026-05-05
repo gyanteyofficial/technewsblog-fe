@@ -1,0 +1,53 @@
+.filter-bar {
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 64px;
+  z-index: 90;
+}
+
+.filter-scroll {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.filter-scroll::-webkit-scrollbar { display: none; }
+
+.filter-btn {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  padding: 7px 18px;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+  font-family: 'Inter', sans-serif;
+}
+
+.filter-btn:hover {
+  border-color: var(--border-hover);
+  color: var(--text-primary);
+  background: var(--bg-card);
+}
+
+.filter-btn.active { color: #fff; border-color: transparent; }
+
+.filter-btn[data-cat="all"].active { background: var(--cat-all); }
+.filter-btn[data-cat="ai"].active { background: var(--cat-ai); }
+.filter-btn[data-cat="technology"].active { background: var(--cat-technology); }
+.filter-btn[data-cat="innovation"].active { background: var(--cat-innovation); }
+.filter-btn[data-cat="cybersecurity"].active { background: var(--cat-cybersecurity); }
+.filter-btn[data-cat="space"].active { background: var(--cat-space); }
+.filter-btn[data-cat="gaming"].active { background: var(--cat-gaming); }
+.filter-btn[data-cat="science"].active { background: var(--cat-science); }
+.filter-btn[data-cat="business"].active { background: var(--cat-business); }

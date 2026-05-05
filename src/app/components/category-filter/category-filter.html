@@ -1,0 +1,13 @@
+<div class="filter-bar">
+  <div class="filter-scroll">
+    @for (cat of categories; track cat) {
+      <button
+        class="filter-btn"
+        [class.active]="selected === cat"
+        [attr.data-cat]="getCategoryClass(cat)"
+        (click)="select(cat)">
+        {{ cat }}
+      </button>
+    }
+  </div>
+</div>
